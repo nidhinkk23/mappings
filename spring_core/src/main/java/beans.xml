@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="hello" class="com.tyss.springcore.beans.Hello"> <!--init-method="init" destroy-method="destroy" scope="prototype" -->
+		<!-- <property name="message" value="I Love Java" /> -->
+		<constructor-arg name="message" value="I Love phython"></constructor-arg>
+		<property name="map" >
+			<map>
+				<entry key="1" value="One"/>
+				<entry key="2" value="Two"/>
+				<entry key="3" value="Three"/>
+				<entry key="4" value="Four"/>
+			</map>
+		</property>
+		<property name="list">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+			</list>
+		
+		</property>
+	</bean>
+
+	<bean id="animal" class="com.tyss.springcore.beans.Dog" />
+	<bean id="cat" class="com.tyss.springcore.beans.Cat"
+		primary="true" />
+
+	<bean id="BeanPostProcesser"
+		class="com.tyss.springcore.beans.BeanPostProcesserImpl" />
+	<bean id="postProcessBeanFactory"
+		class="com.tyss.springcore.beans.BeanFractoryPostProcessorImpl" />
+	<bean id="Pet" class="com.tyss.springcore.beans.Pet"
+		autowire="byName">
+		
+		<property name="name" value="jinni" />
+		 
+		<property name="animal" ref="dog"/> 
+		<!-- <constructor-arg name="name" value="jinni"></constructor-arg> -->
+		<!-- <constructor-arg name="animal" ref="dog" ></constructor-arg> -->
+	</bean>
+
+
+</beans>

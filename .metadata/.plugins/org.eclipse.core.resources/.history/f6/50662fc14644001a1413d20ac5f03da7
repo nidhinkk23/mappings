@@ -1,0 +1,18 @@
+package com.tyss.spring_core;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.tyss.springcore.beans.Hello;
+import com.tyss.springcore.config.BeansConfig;
+
+import lombok.extern.java.Log;
+@Log
+public class AnnotationConfigApp {
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new AnnotationConfigApplicationContext(BeansConfig.class);
+		Hello hello = context.getBean(Hello.class);
+		log.info(hello.getMessage());
+	}
+}
